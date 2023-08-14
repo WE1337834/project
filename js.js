@@ -9,8 +9,8 @@ y_snake = 10;
 spd = 2;
 
 // Сreating random coordinates at a point
-x_point = Math.floor(Math.random() * 800);
-y_point = Math.floor(Math.random() * 800);
+x_point = Math.floor(Math.random() * 750);
+y_point = Math.floor(Math.random() * 750);
 
 // Snake speed counter
 document.getElementsByClassName('score')[0].innerHTML = "Score : " + spd;
@@ -30,8 +30,8 @@ function p(e){
     if(h.isPointInPath(x_point, y_point) == true){
         spd++;
 
-        x_point = Math.floor(Math.random() * 800);
-        y_point = Math.floor(Math.random() * 800);
+        x_point = Math.floor(Math.random() * 750);
+        y_point = Math.floor(Math.random() * 750);
 
         h.rect(x_point, y_point, 20, 20);
     }
@@ -56,7 +56,7 @@ function p(e){
     var img = new Image();
     img.src = "apple.webp";
     img.onload = function(){
-        h.drawImage(img,x_point,y_point, 20, 20); 
+        h.drawImage(img,x_point,y_point, 40, 20); 
     }
     // Creating a Snake
     h.beginPath();
@@ -75,6 +75,6 @@ function p(e){
         h.stroke()
     }
     // Speed counter
-document.getElementsByClassName('score')[0].innerHTML = "Score : " + spd;
+    document.getElementsByClassName('score')[0].innerHTML = "Score : " + spd;
 
 }
