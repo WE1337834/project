@@ -2,8 +2,8 @@
 h = document.getElementsByClassName('canva')[0].getContext('2d');
 
 // Creat the coordinates and spd of the snake
-x_snake = 0;
-y_snake = 0;
+x_snake = 10;
+y_snake = 10;
 spd = 2;
 
 // Сreating random coordinates at a point
