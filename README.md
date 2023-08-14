@@ -1,1 +1,1 @@
-# project
+# The Snake Game
