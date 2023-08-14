@@ -54,7 +54,7 @@ function p(e){
     // Creating a apple
     
     var img = new Image();
-    img.src = "i.webp";
+    img.src = "apple.webp";
     img.onload = function(){
         h.drawImage(img,x_point,y_point, 20, 20); 
     }
