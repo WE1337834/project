@@ -1,66 +1,76 @@
+// Creat holst
 h = document.getElementsByClassName('canva')[0].getContext('2d');
-x = 0;
-y = 0;
-c = 2;
 
-x1 = Math.floor(Math.random() * 800);
-y1 = Math.floor(Math.random() * 800);
-document.getElementsByClassName('score')[0].innerHTML = c;
+// Creat the coordinates and spd of the snake
+x_snake = 0;
+y_snake = 0;
+spd = 2;
+
+// Сreating random coordinates at a point
+x_point = Math.floor(Math.random() * 800);
+y_point = Math.floor(Math.random() * 800);
+
+// Snake speed counter
+document.getElementsByClassName('score')[0].innerHTML = "Score : " + spd;
 
 function p(e){
-    
-    
-
-    
-   
-
+    // Snake Movement
     if(e.keyCode == "37"){
-        x-= c;
+        x_snake -= spd;
     }if(e.keyCode == "38"){
-        y-= c;
+        y_snake -= spd;
     }if(e.keyCode == "39"){
-        x+= c;
+        x_snake += spd;
     }if(e.keyCode == "40"){
-        y+= c;
+        y_snake += spd;
     }
-    if(h.isPointInPath(x1,y1) == true){
-        c++;
-        x1 = Math.floor(Math.random() * 800);
-        y1 = Math.floor(Math.random() * 800);
+    // Random appearance of a dot
+    if(h.isPointInPath(x_point, y_point) == true){
+        spd++;
 
-        h.rect(x1, y1, 5,5);
-        
+        x_point = Math.floor(Math.random() * 800);
+        y_point = Math.floor(Math.random() * 800);
+
+        h.rect(x_point, y_point, 5,5);
     }
-    if(x > 880 || x < 0 || y > 880 || y < 0){
-        alert("Вы проиграли");
-        h.clearRect(x,y, 900, 900);
-        c = 2;
-        x = 0;
-        y = 0;
+
+    // Defeat condition
+    if(x_snake > 880 || x_snake < 0 || y_snake > 880 || y_snake < 0){
+        alert("You have lost :(");
+        h.clearRect(x_snake, y_snake, 900, 900);
+        spd = 2;
+        x_snake = 0;
+        y_snake = 0;
         h.beginPath();
-        h.rect(x, y, 50,50);
+        h.rect(x_snake, y_snake, 50,50);
         h.stroke()
     }
     
+    // Cleaning when walking
     h.clearRect(0,0, 900, 900);
     
+    // Creating a point
     h.beginPath();
-    h.rect(x1, y1, 5,5);
+    h.rect(x_point, y_point, 5,5);
     h.fill();
 
+    // Creating a Snake
     h.beginPath();
-    h.rect(x, y, 50,50);
+    h.rect(x_snake, y_snake, 50,50);
     h.stroke()
     
-    if(c == 6){
-        alert('Вы победили')
-        h.clearRect(x,y, 900, 900);
-        c = 2;
-        x = 0;
-        y = 0;
+    // Victory condition
+    if(spd == 6){
+        alert("You've won! :)")
+        h.clearRect(x_snake, y_snake, 900, 900);
+        spd = 2;
+        x_snake = 0;
+        y_snake = 0;
         h.beginPath();
-        h.rect(x, y, 50,50);
+        h.rect(x_snake, y_snake, 50,50);
         h.stroke()
     }
-    document.getElementsByClassName('score')[0].innerHTML = c;
+    // Speed counter
+document.getElementsByClassName('score')[0].innerHTML = "Score : " + spd;
+
 }

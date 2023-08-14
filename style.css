@@ -1,3 +1,8 @@
 .canva{
     border: 2px solid black;
 }
+.score{
+    font-size: 50px;
+    float: right;
+    margin-right: 700px
+}
