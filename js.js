@@ -1,3 +1,5 @@
+
+
 // Creat holst
 h = document.getElementsByClassName('canva')[0].getContext('2d');
 
@@ -31,7 +33,7 @@ function p(e){
         x_point = Math.floor(Math.random() * 800);
         y_point = Math.floor(Math.random() * 800);
 
-        h.rect(x_point, y_point, 5,5);
+        h.rect(x_point, y_point, 20, 20);
     }
 
     // Defeat condition
@@ -49,23 +51,25 @@ function p(e){
     // Cleaning when walking
     h.clearRect(0,0, 900, 900);
     
-    // Creating a point
-    h.beginPath();
-    h.rect(x_point, y_point, 5,5);
-    h.fill();
-
+    // Creating a apple
+    
+    var img = new Image();
+    img.src = "i.webp";
+    img.onload = function(){
+        h.drawImage(img,x_point,y_point, 20, 20); 
+    }
     // Creating a Snake
     h.beginPath();
     h.rect(x_snake, y_snake, 50,50);
     h.stroke()
     
     // Victory condition
-    if(spd == 6){
+    if(spd == 35){
         alert("You've won! :)")
         h.clearRect(x_snake, y_snake, 900, 900);
         spd = 2;
-        x_snake = 0;
-        y_snake = 0;
+        x_snake = 10;
+        y_snake = 10;
         h.beginPath();
         h.rect(x_snake, y_snake, 50,50);
         h.stroke()
